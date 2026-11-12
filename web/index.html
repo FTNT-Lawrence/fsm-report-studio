@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FortiSIEM Report Studio · 本機產生器</title>
+  <title>FortiSIEM Report Studio</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -13,11 +13,10 @@
         <div class="badge">FSM</div>
         <div>
           <h1>FortiSIEM <span>Report Studio</span></h1>
-          <p class="sub">LOCAL CONSOLE · MCP READ-ONLY · HKT UTC+8</p>
+          <p class="sub">WEB CONSOLE · MCP READ-ONLY · HKT UTC+8</p>
         </div>
       </div>
       <div class="meta-chips">
-        <span class="chip">Bind 127.0.0.1</span>
         <span class="chip">Access Key 不寫入磁碟</span>
         <span class="chip">單檔離線 HTML</span>
       </div>
@@ -27,7 +26,7 @@
       <section class="panel">
         <header><b>01 連線同內容</b><span>設定</span></header>
         <div class="body">
-          <p class="help">喺下面填 Supervisor 位址同 MCP OAuth 憑證，揀報告種類、版本同顏色，然後撳「產生報告」。Python 會喺呢部機即場砌一份單檔 HTML，放喺 <code>out/</code> 資料夾。即時查詢只會呼叫唯讀 MCP 工具，唔會改 FortiSIEM 事故或加 comment。</p>
+          <p class="help">喺下面填 Supervisor 位址同 MCP OAuth 憑證，揀報告種類、版本同顏色，然後撳「產生報告」。系統會即場砌一份單檔 HTML，完成後可喺右邊下載。即時查詢只會呼叫唯讀 MCP 工具，唔會改 FortiSIEM 事故或加 comment。</p>
           <form id="form" autocomplete="off">
             <div class="fields">
               <label class="f">
@@ -132,7 +131,7 @@
 
     <div class="foot">
       <div>READ-ONLY QUERY / GET · 拒絕 update / clear / append comment</div>
-      <div>PYTHON 3.9+ · 本機啟動：python3 start.py</div>
+      <div>填表後產生單檔、離線可開嘅 HTML 報告</div>
     </div>
   </div>
   <script src="/static/app.js"></script>

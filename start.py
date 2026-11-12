@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""本機網頁控制台：填 Supervisor IP 同 API Access Key，揀報告版本／顏色，然後產生報告。
+"""網頁控制台：填 Supervisor IP 同 API Access Key，揀報告版本／顏色，然後產生報告。
 
-只綁 127.0.0.1。Access Key 只在記憶體傳送一次給子行程的環境變數，絕不寫入磁碟。
+本機預設只綁 127.0.0.1。若設定了 PORT 或 RENDER（例如雲端部署），改為綁 0.0.0.0 並使用該連接埠。
+Access Key 只在記憶體傳送一次給子行程的環境變數，絕不寫入磁碟。
 """
 from __future__ import annotations
 
@@ -28,8 +29,11 @@ if str(STUDIO / "engine") not in sys.path:
     sys.path.insert(0, str(STUDIO / "engine"))
 from studio_lib import redact  # noqa: E402
 
-HOST = "127.0.0.1"
 PREFERRED_PORT = 8765
+
+
+def is_hosted() -> bool:
+    return bool(os.environ.get("RENDER") or os.environ.get("PORT"))
 
 _lock = threading.Lock()
 _job = {
@@ -45,12 +49,12 @@ _job = {
 }
 
 
-def pick_port(start: int = PREFERRED_PORT, end: int = 8799) -> int:
+def pick_port(host: str = "127.0.0.1", start: int = PREFERRED_PORT, end: int = 8799) -> int:
     for port in range(start, end + 1):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             try:
-                s.bind((HOST, port))
+                s.bind((host, port))
             except OSError:
                 continue
             return port
@@ -333,15 +337,24 @@ def main() -> int:
     WORK.mkdir(parents=True, exist_ok=True)
     if not (WEB / "index.html").is_file():
         raise SystemExit(f"缺少網頁檔案：{WEB / 'index.html'}")
-    port = pick_port()
-    httpd = ThreadingHTTPServer((HOST, port), Handler)
-    url = f"http://{HOST}:{port}/"
+    hosted = is_hosted()
+    if hosted:
+        host = "0.0.0.0"
+        port = int(os.environ["PORT"]) if os.environ.get("PORT") else PREFERRED_PORT
+    else:
+        host = "127.0.0.1"
+        port = pick_port(host)
+    httpd = ThreadingHTTPServer((host, port), Handler)
+    url = f"http://127.0.0.1:{port}/"
     print(f"FortiSIEM Report Studio 已啟動：{url}", flush=True)
-    print("只監聽本機 127.0.0.1。按 Ctrl+C 結束。", flush=True)
-    try:
-        webbrowser.open(url)
-    except Exception:
-        pass
+    if hosted:
+        print(f"雲端模式：監聽 0.0.0.0:{port}。", flush=True)
+    else:
+        print("只監聽本機 127.0.0.1。按 Ctrl+C 結束。", flush=True)
+        try:
+            webbrowser.open(url)
+        except Exception:
+            pass
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
