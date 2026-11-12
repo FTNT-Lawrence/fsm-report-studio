@@ -1,0 +1,2 @@
+# 只用 Python 標準庫，冇第三方依賴 (stdlib only — no third-party packages required)
+# 可選：dev/check_render.py 需要 playwright

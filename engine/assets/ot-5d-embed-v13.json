@@ -1,0 +1,2146 @@
+{
+  "meta": {
+    "title": "FortiSIEM 五日 OT 安全報告",
+    "queried_at_hkt": "2026-11-02T14:44:52+08:00",
+    "timezone": "Asia/Hong_Kong (HKT, UTC+8)",
+    "window": {
+      "approx_start_hkt": "2026-10-28T14:44:52+08:00",
+      "approx_end_hkt": "2026-11-02T14:44:52+08:00",
+      "sql_predicate": "phRecvTime > now() - 5*86400"
+    },
+    "match_scope": "narrow (token-safe) + IoT word-boundary",
+    "match_note": "Same as ot-events-2d: word-boundary OT/ICS/SCADA/PLC/... on eventType/eventName; word-boundary IoT/IIoT on rawEventMsg; multiSearch for distinctive protocol strings. Exclude PH_AUDIT%.",
+    "version": "OT 1.3",
+    "badge": "OT · 5D"
+  },
+  "total": 114265,
+  "daily": [
+    {
+      "day": "2026-10-28",
+      "count": 30
+    },
+    {
+      "day": "2026-10-29",
+      "count": 10821
+    },
+    {
+      "day": "2026-10-30",
+      "count": 45298
+    },
+    {
+      "day": "2026-10-31",
+      "count": 26793
+    },
+    {
+      "day": "2026-11-01",
+      "count": 26530
+    },
+    {
+      "day": "2026-11-02",
+      "count": 4794
+    }
+  ],
+  "hourly_today": [
+    {
+      "hour": 0,
+      "count": 1153
+    },
+    {
+      "hour": 1,
+      "count": 635
+    },
+    {
+      "hour": 2,
+      "count": 234
+    },
+    {
+      "hour": 3,
+      "count": 238
+    },
+    {
+      "hour": 4,
+      "count": 186
+    },
+    {
+      "hour": 5,
+      "count": 166
+    },
+    {
+      "hour": 6,
+      "count": 228
+    },
+    {
+      "hour": 7,
+      "count": 240
+    },
+    {
+      "hour": 8,
+      "count": 247
+    },
+    {
+      "hour": 9,
+      "count": 204
+    },
+    {
+      "hour": 10,
+      "count": 426
+    },
+    {
+      "hour": 11,
+      "count": 249
+    },
+    {
+      "hour": 12,
+      "count": 226
+    },
+    {
+      "hour": 13,
+      "count": 183
+    },
+    {
+      "hour": 14,
+      "count": 180
+    }
+  ],
+  "top_types": [
+    {
+      "eventType": "Siemens_PLC_Start_Stop_Status_Change",
+      "eventName": "Siemens_PLC_Start_Stop_Status_Change",
+      "count": 54427
+    },
+    {
+      "eventType": "FortiGate-traffic-end-forward-timeout",
+      "eventName": "FortiGate traffic end forward timeout",
+      "count": 18564
+    },
+    {
+      "eventType": "Unknown_EventType",
+      "eventName": "Unknown event type",
+      "count": 11664
+    },
+    {
+      "eventType": "FortiGate-traffic-end-forward-allowed",
+      "eventName": "Allowed forward traffic",
+      "count": 9314
+    },
+    {
+      "eventType": "FortiGate-traffic-forward",
+      "eventName": "Forwarded traffic",
+      "count": 7007
+    },
+    {
+      "eventType": "PH_RULE_TRAFFIC_NOT_L35_TO_L3",
+      "eventName": "OT Permited Traffic not from Purdue Level 3.5 to Level 3",
+      "count": 4540
+    },
+    {
+      "eventType": "PH_RULE_TRAFFIC_NOT_L4_TO_L35",
+      "eventName": "OT Permited Traffic not from Purdue Level 4 to Level 3.5",
+      "count": 2268
+    },
+    {
+      "eventType": "FortiGate-traffic-fail-conn",
+      "eventName": "Failed connection attempts",
+      "count": 1870
+    },
+    {
+      "eventType": "FortiGate-event-wireless-rogue-offair",
+      "eventName": "Rogue AP off air",
+      "count": 1036
+    },
+    {
+      "eventType": "FortiGate-appctrl-ips-pass",
+      "eventName": "Application control (IPS) (pass)",
+      "count": 935
+    },
+    {
+      "eventType": "FortiGate-traffic-end-forward-client-rst",
+      "eventName": "FortiGate traffic end forward client rst",
+      "count": 926
+    },
+    {
+      "eventType": "FortiGate-traffic-end-forward-denied",
+      "eventName": "Denied forward traffic",
+      "count": 384
+    },
+    {
+      "eventType": "FortiDeceptor-Generic",
+      "eventName": "FortiDeceptor-Generic",
+      "count": 364
+    },
+    {
+      "eventType": "PH_UTIL_XML_HANDLING_ERROR",
+      "eventName": "Found Invalid xml from App Server",
+      "count": 157
+    },
+    {
+      "eventType": "FortiGate-traffic-end-forward-server-rst",
+      "eventName": "FortiGate traffic end forward server rst",
+      "count": 118
+    },
+    {
+      "eventType": "OT_Protocol_Actions_from_Device_not_in_Purdue_Level_2_to_Purdue_Level_2",
+      "eventName": "OT_Protocol_Actions_from_Device_not_in_Purdue_Level_2_to_Purdue_Level_2",
+      "count": 87
+    },
+    {
+      "eventType": "Unusal_OT_Transactions",
+      "eventName": "Unusal_OT_Transactions",
+      "count": 77
+    },
+    {
+      "eventType": "FortiGate-event-wireless-rogue-detect",
+      "eventName": "Rogue AP detected",
+      "count": 73
+    },
+    {
+      "eventType": "FortiGate-event-wireless-rogue-detect-chg",
+      "eventName": "Rogue AP change detected",
+      "count": 49
+    },
+    {
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "eventName": "OT_Suspicious_Port_Scanning_Activities",
+      "count": 45
+    }
+  ],
+  "top_rept": [
+    {
+      "reptDevName": "HOST-172.16.0.1",
+      "reptDevIpAddr": "::ffff:172.16.0.1",
+      "count": 66091
+    },
+    {
+      "reptDevName": "FortiGateRugged-70G-5G-Dual",
+      "reptDevIpAddr": "::ffff:172.16.0.254",
+      "count": 40030
+    },
+    {
+      "reptDevName": "HOST-172.16.0.114",
+      "reptDevIpAddr": "::ffff:172.16.0.114",
+      "count": 7030
+    },
+    {
+      "reptDevName": "FDCVM",
+      "reptDevIpAddr": "::ffff:192.168.27.3",
+      "count": 364
+    },
+    {
+      "reptDevName": "SIEM.fortinethk.com",
+      "reptDevIpAddr": "::ffff:192.168.10.99",
+      "count": 346
+    },
+    {
+      "reptDevName": "FortiGate-700G-Backup",
+      "reptDevIpAddr": "::ffff:192.168.10.1",
+      "count": 310
+    },
+    {
+      "reptDevName": "FDCVMSTM26000372",
+      "reptDevIpAddr": "::ffff:172.16.0.117",
+      "count": 95
+    },
+    {
+      "reptDevName": "Workshop-27.2",
+      "reptDevIpAddr": "::ffff:192.168.27.2",
+      "count": 1
+    },
+    {
+      "reptDevName": "HOST-66.228.62.150",
+      "reptDevIpAddr": "::ffff:66.228.62.150",
+      "count": 1
+    }
+  ],
+  "needles": {
+    "Modbus": 13236,
+    "DNP3": 0,
+    "BACnet": 0,
+    "SCADA": 38265,
+    "Profinet": 0,
+    "IEC104": 0,
+    "S7comm": 165,
+    "OPCUA": 7,
+    "EtherNetIP": 0,
+    "FortiGuardOT": 0,
+    "IoT": 1200,
+    "IIoT": 0,
+    "MQTT": 1,
+    "Zigbee": 0,
+    "ZWave": 0,
+    "CoAP": 0,
+    "ICS": 44,
+    "PLC": 66255,
+    "Siemens_S7": 86593,
+    "Purdue": 6971,
+    "FTNT_IOT": 793
+  },
+  "severity": [
+    {
+      "severity": "MEDIUM",
+      "count": 63525
+    },
+    {
+      "severity": "LOW",
+      "count": 38832
+    },
+    {
+      "severity": "",
+      "count": 11664
+    },
+    {
+      "severity": "HIGH",
+      "count": 249
+    }
+  ],
+  "notable_rules": [
+    {
+      "eventType": "Siemens_PLC_Start_Stop_Status_Change",
+      "eventName": "Siemens_PLC_Start_Stop_Status_Change",
+      "count": 54430
+    },
+    {
+      "eventType": "PH_RULE_TRAFFIC_NOT_L35_TO_L3",
+      "eventName": "OT Permited Traffic not from Purdue Level 3.5 to Level 3",
+      "count": 4540
+    },
+    {
+      "eventType": "PH_RULE_TRAFFIC_NOT_L4_TO_L35",
+      "eventName": "OT Permited Traffic not from Purdue Level 4 to Level 3.5",
+      "count": 2268
+    },
+    {
+      "eventType": "FortiGate-event-wireless-rogue-offair",
+      "eventName": "Rogue AP off air",
+      "count": 1036
+    },
+    {
+      "eventType": "OT_Protocol_Actions_from_Device_not_in_Purdue_Level_2_to_Purdue_Level_2",
+      "eventName": "OT_Protocol_Actions_from_Device_not_in_Purdue_Level_2_to_Purdue_Level_2",
+      "count": 87
+    },
+    {
+      "eventType": "Unusal_OT_Transactions",
+      "eventName": "Unusal_OT_Transactions",
+      "count": 77
+    },
+    {
+      "eventType": "FortiGate-event-wireless-rogue-detect",
+      "eventName": "Rogue AP detected",
+      "count": 73
+    },
+    {
+      "eventType": "FortiGate-event-wireless-rogue-detect-chg",
+      "eventName": "Rogue AP change detected",
+      "count": 49
+    },
+    {
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "eventName": "OT_Suspicious_Port_Scanning_Activities",
+      "count": 45
+    },
+    {
+      "eventType": "PH_RULE_HIGH_SEV_SEC_IPS_OUT_PERMIT",
+      "eventName": "High Severity Outbound Permitted IPS Exploit",
+      "count": 40
+    },
+    {
+      "eventType": "PH_RULE_FORTIDECEPTOR_IOT",
+      "eventName": "FortiDeceptor: Successful IOT SCADA Operations to Decoy",
+      "count": 29
+    },
+    {
+      "eventType": "PH_RULE_MOBUS_WRITE_SRC_NOT_L2",
+      "eventName": "OT Modbus Write Command Initiated outside of Purdue Level 2",
+      "count": 18
+    },
+    {
+      "eventType": "PH_RULE_TRAFFIC_NOT_L3_TO_L2",
+      "eventName": "OT Permited Traffic not from Purdue Level 3 to Level 2",
+      "count": 10
+    },
+    {
+      "eventType": "FortiDeceptor-Modbus_Connection",
+      "eventName": "FortiDeceptor-Modbus_Connection",
+      "count": 6
+    },
+    {
+      "eventType": "FortiDeceptor-Modbus_client_disconnected",
+      "eventName": "FortiDeceptor Modbus client disconnected",
+      "count": 6
+    },
+    {
+      "eventType": "Siemens_PLC_Logic_Modified_during_Production_Hour",
+      "eventName": "Siemens_PLC_Logic_Modified_during_Production_Hour",
+      "count": 5
+    }
+  ],
+  "talkers": [
+    {
+      "src": "::ffff:172.16.0.3",
+      "dst": "::ffff:172.16.0.1",
+      "count": 14380
+    },
+    {
+      "src": null,
+      "dst": "::ffff:172.16.0.1",
+      "count": 11656
+    },
+    {
+      "src": "::ffff:172.16.0.2",
+      "dst": "::ffff:172.16.0.1",
+      "count": 2308
+    },
+    {
+      "src": "::ffff:172.16.0.1",
+      "dst": "::ffff:172.16.0.114",
+      "count": 2281
+    },
+    {
+      "src": "::ffff:172.16.0.2",
+      "dst": "::ffff:172.16.0.3",
+      "count": 2270
+    },
+    {
+      "src": "::ffff:172.16.0.114",
+      "dst": "::ffff:172.16.0.1",
+      "count": 2264
+    },
+    {
+      "src": "::ffff:172.16.0.114",
+      "dst": "::ffff:172.16.0.117",
+      "count": 2264
+    },
+    {
+      "src": "::ffff:172.16.0.114",
+      "dst": "::ffff:172.16.0.2",
+      "count": 2264
+    },
+    {
+      "src": "::ffff:172.16.0.112",
+      "dst": "::ffff:172.16.0.114",
+      "count": 993
+    },
+    {
+      "src": "::ffff:172.16.0.117",
+      "dst": "::ffff:172.16.0.114",
+      "count": 920
+    },
+    {
+      "src": null,
+      "dst": null,
+      "count": 454
+    },
+    {
+      "src": "::ffff:172.16.0.3",
+      "dst": "::ffff:172.16.0.130",
+      "count": 91
+    },
+    {
+      "src": "::ffff:172.16.0.3",
+      "dst": "::ffff:172.16.0.114",
+      "count": 59
+    },
+    {
+      "src": "::ffff:172.16.0.3",
+      "dst": "::ffff:172.16.0.235",
+      "count": 47
+    },
+    {
+      "src": "::ffff:172.16.0.3",
+      "dst": "::ffff:172.16.0.241",
+      "count": 47
+    }
+  ],
+  "top_src": [
+    {
+      "ip": "172.16.0.3",
+      "count": 23988
+    },
+    {
+      "ip": "172.16.0.114",
+      "count": 13573
+    },
+    {
+      "ip": "172.16.0.2",
+      "count": 4578
+    },
+    {
+      "ip": "172.16.0.1",
+      "count": 2281
+    },
+    {
+      "ip": "172.16.0.112",
+      "count": 993
+    },
+    {
+      "ip": "172.16.0.117",
+      "count": 925
+    },
+    {
+      "ip": "139.162.110.42",
+      "count": 8
+    },
+    {
+      "ip": "66.240.205.34",
+      "count": 2
+    },
+    {
+      "ip": "20.64.99.167",
+      "count": 1
+    },
+    {
+      "ip": "20.46.243.67",
+      "count": 1
+    },
+    {
+      "ip": "20.65.202.178",
+      "count": 1
+    },
+    {
+      "ip": "66.132.224.234",
+      "count": 1
+    }
+  ],
+  "top_dst": [
+    {
+      "ip": "172.16.0.1",
+      "count": 30646
+    },
+    {
+      "ip": "172.16.0.117",
+      "count": 6818
+    },
+    {
+      "ip": "172.16.0.114",
+      "count": 4253
+    },
+    {
+      "ip": "172.16.0.2",
+      "count": 2283
+    },
+    {
+      "ip": "172.16.0.3",
+      "count": 2270
+    },
+    {
+      "ip": "172.16.0.254",
+      "count": 2268
+    },
+    {
+      "ip": "172.16.0.130",
+      "count": 153
+    },
+    {
+      "ip": "172.16.0.119",
+      "count": 91
+    },
+    {
+      "ip": "172.16.0.113",
+      "count": 48
+    },
+    {
+      "ip": "172.16.0.241",
+      "count": 47
+    },
+    {
+      "ip": "172.16.0.235",
+      "count": 47
+    },
+    {
+      "ip": "172.16.0.226",
+      "count": 46
+    }
+  ],
+  "policies": [
+    {
+      "policy": "1b1c_Intra-SCADA-Network-Monitor",
+      "count": 38221
+    }
+  ],
+  "samples": [
+    {
+      "t": "2026-11-02 14:47:19",
+      "eventType": "Siemens_PLC_Start_Stop_Status_Change",
+      "eventName": "Siemens_PLC_Start_Stop_Status_Change",
+      "reptDevName": "HOST-172.16.0.1",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793602035</lastSeenTime><firstSeenTime>1793598570</firstSeenTime><count>112</count><durationMSec>1",
+      "sample_tag": "Siemens_PLC"
+    },
+    {
+      "t": "2026-11-02 14:47:04",
+      "eventType": "Siemens_PLC_Start_Stop_Status_Change",
+      "eventName": "Siemens_PLC_Start_Stop_Status_Change",
+      "reptDevName": "HOST-172.16.0.1",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793602020</lastSeenTime><firstSeenTime>1793598570</firstSeenTime><count>109</count><durationMSec>1",
+      "sample_tag": "Siemens_PLC"
+    },
+    {
+      "t": "2026-10-30 11:24:13",
+      "eventType": "FortiGate-appctrl-ips-pass",
+      "eventName": "Application control (IPS) (pass)",
+      "reptDevName": "FortiGateRugged-70G-5G-Dual",
+      "msg": "<190>Oct 30 11:24:05 172.16.0.254 date=2026-10-30 time=11:24:05 devname=\"FortiGateRugged-70G-5G-Dual\" devid=\"FR70G5TK24004383\" eventtime=1793330645087528983 tz=\"+0800\" logid=\"1059028704\" type=\"utm\" subtype=\"app-ctrl\" eve",
+      "sample_tag": "Modbus_appctrl"
+    },
+    {
+      "t": "2026-10-30 11:24:13",
+      "eventType": "FortiGate-appctrl-ips-pass",
+      "eventName": "Application control (IPS) (pass)",
+      "reptDevName": "FortiGateRugged-70G-5G-Dual",
+      "msg": "<190>Oct 30 11:24:09 172.16.0.254 date=2026-10-30 time=11:24:09 devname=\"FortiGateRugged-70G-5G-Dual\" devid=\"FR70G5TK24004383\" eventtime=1793330649196361322 tz=\"+0800\" logid=\"1059028704\" type=\"utm\" subtype=\"app-ctrl\" eve",
+      "sample_tag": "Modbus_appctrl"
+    },
+    {
+      "t": "2026-10-30 19:15:29",
+      "eventType": "FortiDeceptor-Generic",
+      "eventName": "FortiDeceptor-Generic",
+      "reptDevName": "FDCVM",
+      "msg": "<30>2026-10-30T11:15:28Z FDCVMSTM26000851 device=FortiDeceptor version=1.2 devhost=FDCVMSTM26000851 devid=FDCVMSTM26000851 logver=25 tzone=0 tz= date=2026-10-30 time=11:15:28 logid=0123000018 type=event subtype=system le",
+      "sample_tag": "FDC_Modbus"
+    },
+    {
+      "t": "2026-10-30 19:15:25",
+      "eventType": "FortiDeceptor-Generic",
+      "eventName": "FortiDeceptor-Generic",
+      "reptDevName": "FDCVM",
+      "msg": "<30>2026-10-30T11:15:24Z FDCVMSTM26000851 device=FortiDeceptor version=1.2 devhost=FDCVMSTM26000851 devid=FDCVMSTM26000851 logver=25 tzone=0 tz= date=2026-10-30 time=11:15:24 logid=0123000018 type=event subtype=system le",
+      "sample_tag": "FDC_Modbus"
+    },
+    {
+      "t": "2026-11-02 13:46:04",
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "eventName": "OT_Suspicious_Port_Scanning_Activities",
+      "reptDevName": "SIEM.fortinethk.com",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793598360</lastSeenTime><firstSeenTime>1793598360</firstSeenTime><count>1</count><durationMSec>300",
+      "sample_tag": "OT_rules"
+    },
+    {
+      "t": "2026-11-02 10:54:33",
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "eventName": "OT_Suspicious_Port_Scanning_Activities",
+      "reptDevName": "SIEM.fortinethk.com",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793588070</lastSeenTime><firstSeenTime>1793588070</firstSeenTime><count>1</count><durationMSec>300",
+      "sample_tag": "OT_rules"
+    },
+    {
+      "t": "2026-11-02 14:02:14",
+      "eventType": "FortiGate-event-wireless-rogue-offair",
+      "eventName": "Rogue AP off air",
+      "reptDevName": "FortiGate-700G-Backup",
+      "msg": "<189>date=2026-11-02 time=14:02:13 devname=\"FortiGate-700G-Backup\" devid=\"FG7H0GTB25000417\" eventtime=1793599333189012981 tz=\"+0800\" logid=\"0104043564\" type=\"event\" subtype=\"wireless\" level=\"notice\" vd=\"root\" logdesc=\"Ro",
+      "sample_tag": "IoT_SSID"
+    },
+    {
+      "t": "2026-11-02 13:10:13",
+      "eventType": "FortiGate-event-wireless-rogue-offair",
+      "eventName": "Rogue AP off air",
+      "reptDevName": "FortiGate-700G-Backup",
+      "msg": "<189>date=2026-11-02 time=13:10:13 devname=\"FortiGate-700G-Backup\" devid=\"FG7H0GTB25000417\" eventtime=1793596213189018466 tz=\"+0800\" logid=\"0104043564\" type=\"event\" subtype=\"wireless\" level=\"notice\" vd=\"root\" logdesc=\"Ro",
+      "sample_tag": "IoT_SSID"
+    },
+    {
+      "t": "2026-10-30 11:24:51",
+      "eventType": "PH_RULE_HIGH_SEV_SEC_IPS_OUT_PERMIT",
+      "eventName": "High Severity Outbound Permitted IPS Exploit",
+      "reptDevName": "SIEM.fortinethk.com",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793330685</lastSeenTime><firstSeenTime>1793330685</firstSeenTime><count>1</count><durationMSec>300",
+      "sample_tag": "IPS_OT"
+    },
+    {
+      "t": "2026-10-30 11:24:51",
+      "eventType": "PH_RULE_HIGH_SEV_SEC_IPS_OUT_PERMIT",
+      "eventName": "High Severity Outbound Permitted IPS Exploit",
+      "reptDevName": "SIEM.fortinethk.com",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793330685</lastSeenTime><firstSeenTime>1793330685</firstSeenTime><count>1</count><durationMSec>300",
+      "sample_tag": "IPS_OT"
+    },
+    {
+      "t": "2026-11-02 13:46:04",
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "eventName": "OT_Suspicious_Port_Scanning_Activities",
+      "reptDevName": "SIEM.fortinethk.com",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793598360</lastSeenTime><firstSeenTime>1793598360</firstSeenTime><count>1</count><durationMSec>300",
+      "sample_tag": "Port_scan"
+    },
+    {
+      "t": "2026-11-02 10:54:33",
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "eventName": "OT_Suspicious_Port_Scanning_Activities",
+      "reptDevName": "SIEM.fortinethk.com",
+      "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793588070</lastSeenTime><firstSeenTime>1793588070</firstSeenTime><count>1</count><durationMSec>300",
+      "sample_tag": "Port_scan"
+    }
+  ],
+  "cmdb_ot": [
+    {
+      "name": "FDCVM",
+      "access_ip": "192.168.27.3",
+      "vendor": "Fortinet",
+      "model": "FortiDeceptor",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FDCVMSTM26000372",
+      "access_ip": "172.16.0.117",
+      "vendor": "Fortinet",
+      "model": "FortiDeceptor",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FortiGateRugged-70G-5G-Dual",
+      "access_ip": "172.16.0.254",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "s1-agent-01",
+      "access_ip": "100.63.197.102",
+      "vendor": "SentinelOne",
+      "model": "Endpoint Protection Service",
+      "discover_method": "LOG"
+    }
+  ],
+  "cmdb_fortios": [
+    {
+      "name": "FGT-61F-RKJZFF",
+      "access_ip": "192.168.13.136",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FortiGate-121G",
+      "access_ip": "192.168.10.32",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FortiGate-700G-Backup",
+      "access_ip": "192.168.10.1",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FortiGate-900G",
+      "access_ip": "14.0.228.197",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FortiGateRugged-70G-5G-Dual",
+      "access_ip": "172.16.0.254",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "FortiGate-Workshop",
+      "access_ip": "192.168.115.253",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    },
+    {
+      "name": "Workshop-27.2",
+      "access_ip": "192.168.27.2",
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "discover_method": "LOG"
+    }
+  ],
+  "cmdb_hosts": [
+    {
+      "name": "FDCVM",
+      "access_ip": "192.168.27.3",
+      "vendor": "Fortinet",
+      "model": "FortiDeceptor"
+    },
+    {
+      "name": "FortiGate-121G",
+      "access_ip": "192.168.10.32",
+      "vendor": "Fortinet",
+      "model": "FortiOS"
+    },
+    {
+      "name": "FortiGate-700G-Backup",
+      "access_ip": "192.168.10.1",
+      "vendor": "Fortinet",
+      "model": "FortiOS"
+    },
+    {
+      "name": "FortiGateRugged-70G-5G-Dual",
+      "access_ip": "172.16.0.254",
+      "vendor": "Fortinet",
+      "model": "FortiOS"
+    },
+    {
+      "name": "FortiGate-Workshop",
+      "access_ip": "192.168.115.253",
+      "vendor": "Fortinet",
+      "model": "FortiOS"
+    },
+    {
+      "name": "HOST-172.16.0.114",
+      "access_ip": "172.16.0.114",
+      "vendor": "Generic",
+      "model": "Unix"
+    },
+    {
+      "name": "SIEM.fortinethk.com",
+      "access_ip": "192.168.10.99",
+      "vendor": "Fortinet",
+      "model": "FortiSIEM"
+    },
+    {
+      "name": "Workshop-27.2",
+      "access_ip": "192.168.27.2",
+      "vendor": "Fortinet",
+      "model": "FortiOS"
+    }
+  ],
+  "cmdb_vendors": [
+    {
+      "vendor": "Fortinet",
+      "model": "FortiOS",
+      "c": 7
+    },
+    {
+      "vendor": "Checkpoint",
+      "model": "FireWall-1",
+      "c": 2
+    },
+    {
+      "vendor": "Fortinet",
+      "model": "FortiDeceptor",
+      "c": 2
+    },
+    {
+      "vendor": "Palo Alto",
+      "model": "PAN-OS",
+      "c": 2
+    },
+    {
+      "vendor": "Fortinet",
+      "model": "FortiPAM",
+      "c": 2
+    },
+    {
+      "vendor": "Fortinet",
+      "model": "FortiSandbox",
+      "c": 1
+    },
+    {
+      "vendor": "CyberArk",
+      "model": "Enterprise Password Vault",
+      "c": 1
+    },
+    {
+      "vendor": "Fortinet",
+      "model": "FortiNDR",
+      "c": 1
+    },
+    {
+      "vendor": "SentinelOne",
+      "model": "Endpoint Protection Service",
+      "c": 1
+    },
+    {
+      "vendor": "Generic",
+      "model": "Unix",
+      "c": 1
+    },
+    {
+      "vendor": "Fortinet",
+      "model": "FortiSIEM",
+      "c": 1
+    }
+  ],
+  "cmdb_name_search": [],
+  "memory_fortios": [
+    {
+      "name": "FGVMELTM26019309",
+      "ip": "192.168.27.2"
+    },
+    {
+      "name": "FortiGate-121G",
+      "ip": "192.168.10.32"
+    },
+    {
+      "name": "FortiGate-700G-Backup",
+      "ip": "192.168.10.1"
+    },
+    {
+      "name": "FortiGate-Workshop",
+      "ip": "192.168.115.253"
+    }
+  ],
+  "incidents_ot": [
+    {
+      "incident_id": 596006,
+      "incident_title": "Siemens PLC 172.16.0.1 stop application Status",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 13:49",
+      "last_seen": "2026-11-02 14:48",
+      "rule_name": "Siemens PLC Start Stop Status Change"
+    },
+    {
+      "incident_id": 596005,
+      "incident_title": "Siemens PLC 172.16.0.1 start application Status",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 13:49",
+      "last_seen": "2026-11-02 14:48",
+      "rule_name": "Siemens PLC Start Stop Status Change"
+    },
+    {
+      "incident_id": 596014,
+      "incident_title": "Inbound cleartext password usage from 216.25.90.5 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "216.25.90.5",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 14:42",
+      "last_seen": "2026-11-02 14:42",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 596007,
+      "incident_title": "Sudden Increase in Firewall Denied Outbound Traffic To protocol 17 and port 80 from 6.6 to 22",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 13:52",
+      "last_seen": "2026-11-02 13:56",
+      "rule_name": "Sudden Increase In Firewall Denied Outbound Traffic To A Specific TCP/UDP port"
+    },
+    {
+      "incident_id": 594972,
+      "incident_title": "Siemens PLC 172.16.0.1 stop application Status",
+      "severity_cat": "MEDIUM",
+      "status": "Cleared (Rule)",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-01 12:49",
+      "last_seen": "2026-11-02 13:48",
+      "rule_name": "Siemens PLC Start Stop Status Change"
+    },
+    {
+      "incident_id": 594973,
+      "incident_title": "Siemens PLC 172.16.0.1 start application Status",
+      "severity_cat": "MEDIUM",
+      "status": "Cleared (Rule)",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-01 12:49",
+      "last_seen": "2026-11-02 13:48",
+      "rule_name": "Siemens PLC Start Stop Status Change"
+    },
+    {
+      "incident_id": 596004,
+      "incident_title": "OT Suspicious Port Scanning Activities from 66.228.62.150",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "66.228.62.150",
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 13:46",
+      "last_seen": "2026-11-02 13:46",
+      "rule_name": "OT Suspicious Port Scanning Activities"
+    },
+    {
+      "incident_id": 595996,
+      "incident_title": "Inbound cleartext password usage from 35.206.153.174 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "35.206.153.174",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 12:59",
+      "last_seen": "2026-11-02 12:59",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 594864,
+      "incident_title": "Sudden Increase in Firewall Denied Outbound Traffic To protocol 6 and port 3389 from 9.2 to 53",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-30 16:58",
+      "last_seen": "2026-11-02 11:44",
+      "rule_name": "Sudden Increase In Firewall Denied Outbound Traffic To A Specific TCP/UDP port"
+    },
+    {
+      "incident_id": 64822,
+      "incident_title": "Sudden Increase in Firewall Denied Outbound Traffic To protocol 17 and port 8514 from 598.56 to 662",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-17 11:29",
+      "last_seen": "2026-11-02 11:11",
+      "rule_name": "Sudden Increase In Firewall Denied Outbound Traffic To A Specific TCP/UDP port"
+    },
+    {
+      "incident_id": 595029,
+      "incident_title": "Inbound cleartext password usage from 86.54.31.34 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "86.54.31.34",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 10:58",
+      "last_seen": "2026-11-02 10:58",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 595026,
+      "incident_title": "OT Suspicious Port Scanning Activities from 137.184.226.250",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "137.184.226.250",
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 10:54",
+      "last_seen": "2026-11-02 10:54",
+      "rule_name": "OT Suspicious Port Scanning Activities"
+    },
+    {
+      "incident_id": 595025,
+      "incident_title": "Inbound cleartext password usage from 35.210.53.157 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "35.210.53.157",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 10:29",
+      "last_seen": "2026-11-02 10:29",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 595024,
+      "incident_title": "Inbound cleartext password usage from 35.210.114.224 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "35.210.114.224",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 10:28",
+      "last_seen": "2026-11-02 10:28",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 594948,
+      "incident_title": "Inbound cleartext password usage from 35.210.178.57 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "35.210.178.57",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-31 19:03",
+      "last_seen": "2026-11-02 10:28",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 955,
+      "incident_title": "Sudden Increase in Firewall Denied Outbound Traffic To protocol 6 and port 853 from 14.85 to 41",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-12 16:11",
+      "last_seen": "2026-11-02 10:13",
+      "rule_name": "Sudden Increase In Firewall Denied Outbound Traffic To A Specific TCP/UDP port"
+    },
+    {
+      "incident_id": 595014,
+      "incident_title": "OT Suspicious Port Scanning Activities from 172.206.224.51",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "172.206.224.51",
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 10:05",
+      "last_seen": "2026-11-02 10:05",
+      "rule_name": "OT Suspicious Port Scanning Activities"
+    },
+    {
+      "incident_id": 595006,
+      "incident_title": "Inbound cleartext password usage from 205.210.31.170 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "205.210.31.170",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 08:33",
+      "last_seen": "2026-11-02 08:33",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 595005,
+      "incident_title": "Inbound cleartext password usage from 147.185.132.24 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "147.185.132.24",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 08:04",
+      "last_seen": "2026-11-02 08:05",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 595004,
+      "incident_title": "Inbound cleartext password usage from 107.175.17.240 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "107.175.17.240",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 07:36",
+      "last_seen": "2026-11-02 07:36",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 1318,
+      "incident_title": "Sudden Increase in Firewall Denied Inbound Traffic To protocol 6 and port 8080 from 5.2 to 13",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-14 13:09",
+      "last_seen": "2026-11-02 07:24",
+      "rule_name": "Sudden Increase In Firewall Denied Inbound Traffic To A Specific TCP/UDP port"
+    },
+    {
+      "incident_id": 595002,
+      "incident_title": "Inbound cleartext password usage from 20.29.44.83 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "20.29.44.83",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 02:21",
+      "last_seen": "2026-11-02 02:22",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 595001,
+      "incident_title": "Inbound cleartext password usage from 66.132.172.38 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "66.132.172.38",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 02:12",
+      "last_seen": "2026-11-02 02:12",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 856,
+      "incident_title": "Inbound cleartext password usage from 139.162.116.22 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "139.162.116.22",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-10 12:01",
+      "last_seen": "2026-11-02 02:06",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    },
+    {
+      "incident_id": 595000,
+      "incident_title": "Inbound cleartext password usage from 66.132.195.198 to 192.168.10.28 on port 143",
+      "severity_cat": "MEDIUM",
+      "status": "Open",
+      "src_ip_addr": "66.132.195.198",
+      "dest_ip_addr": "192.168.10.28",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 01:53",
+      "last_seen": "2026-11-02 01:54",
+      "rule_name": "Inbound insecure protocol traffic detected"
+    }
+  ],
+  "incidents_hi": [
+    {
+      "incident_id": 562138,
+      "incident_title": "Intrusion Attacks ZGrab.Scanner Detected",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": null,
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-10-29 18:09",
+      "last_seen": "2026-11-02 13:46",
+      "rule_name": null
+    },
+    {
+      "incident_id": 596003,
+      "incident_title": "Stealth scanning tool attack from 66.228.62.150 to 192.168.10.99",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "66.228.62.150",
+      "dest_ip_addr": "192.168.10.99",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 13:46",
+      "last_seen": "2026-11-02 13:46",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595682,
+      "incident_title": "SQL Injection Attack N/A from 192.168.40.11 to 8.8.8.8",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "192.168.40.11",
+      "dest_ip_addr": "8.8.8.8",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595683,
+      "incident_title": "SQL Injection Attack N/A from 172.16.8.44 to 93.184.216.34",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "172.16.8.44",
+      "dest_ip_addr": "93.184.216.34",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595692,
+      "incident_title": "SQL Injection Attack N/A from 10.50.2.22 to 8.8.8.8",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.2.22",
+      "dest_ip_addr": "8.8.8.8",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595688,
+      "incident_title": "SQL Injection Attack N/A from 10.50.4.7 to 8.8.8.8",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.4.7",
+      "dest_ip_addr": "8.8.8.8",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595687,
+      "incident_title": "SQL Injection Attack N/A from 10.50.6.33 to 93.184.216.34",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.6.33",
+      "dest_ip_addr": "93.184.216.34",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595780,
+      "incident_title": "Inappropriate Website access to 1.1.1.1 raw.githubusercontent.com in Australia from more than 5 distinct sources",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": "1.1.1.1",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595681,
+      "incident_title": "SQL Injection Attack N/A from 10.50.5.19 to 185.220.101.45",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.5.19",
+      "dest_ip_addr": "185.220.101.45",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595690,
+      "incident_title": "SQL Injection Attack N/A from 192.168.40.11 to 1.1.1.1",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "192.168.40.11",
+      "dest_ip_addr": "1.1.1.1",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595764,
+      "incident_title": "Inappropriate Website access to 142.250.189.14 www.youtube.com in Mexico from more than 5 distinct sources",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": "142.250.189.14",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595720,
+      "incident_title": "Inappropriate Website access to 93.184.216.34 malware-c2.example.bad in United States from more than 5 distinct sources",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": "93.184.216.34",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595691,
+      "incident_title": "SQL Injection Attack N/A from 10.50.3.15 to 151.101.1.69",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.3.15",
+      "dest_ip_addr": "151.101.1.69",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595785,
+      "incident_title": "Inappropriate Website access to 151.101.1.69 pastebin.com in United States from more than 5 distinct sources",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": null,
+      "dest_ip_addr": "151.101.1.69",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595694,
+      "incident_title": "SQL Injection Attack N/A from 10.50.6.33 to 151.101.1.69",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.6.33",
+      "dest_ip_addr": "151.101.1.69",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595689,
+      "incident_title": "SQL Injection Attack N/A from 10.50.3.15 to 45.33.32.156",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.3.15",
+      "dest_ip_addr": "45.33.32.156",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595693,
+      "incident_title": "SQL Injection Attack N/A from 172.16.8.44 to 151.101.1.69",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "172.16.8.44",
+      "dest_ip_addr": "151.101.1.69",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595695,
+      "incident_title": "SQL Injection Attack N/A from 10.50.5.19 to 8.8.8.8",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.5.19",
+      "dest_ip_addr": "8.8.8.8",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595685,
+      "incident_title": "SQL Injection Attack N/A from 10.50.6.33 to 1.1.1.1",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.6.33",
+      "dest_ip_addr": "1.1.1.1",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    },
+    {
+      "incident_id": 595684,
+      "incident_title": "SQL Injection Attack N/A from 10.50.3.88 to 185.220.101.45",
+      "severity_cat": "HIGH",
+      "status": "Open",
+      "src_ip_addr": "10.50.3.88",
+      "dest_ip_addr": "185.220.101.45",
+      "host_name": null,
+      "host_ip_addr": null,
+      "first_seen": "2026-11-02 11:52",
+      "last_seen": "2026-11-02 11:52",
+      "rule_name": null
+    }
+  ],
+  "ot_incident_rules": [
+    {
+      "name": "Inbound insecure protocol traffic detected",
+      "c": 170,
+      "sev": "MEDIUM"
+    },
+    {
+      "name": "OT Suspicious Port Scanning Activities",
+      "c": 14,
+      "sev": "MEDIUM"
+    },
+    {
+      "name": "OT Protocol Actions from Device not in Purdue Level 2 to Purdue Level 2",
+      "c": 9,
+      "sev": "MEDIUM"
+    },
+    {
+      "name": "Siemens PLC Start Stop Status Change",
+      "c": 8,
+      "sev": "MEDIUM"
+    },
+    {
+      "name": "Unusal OT Transactions",
+      "c": 7,
+      "sev": "HIGH"
+    },
+    {
+      "name": "FortiDeceptor: Successful IOT SCADA Operations to Decoy",
+      "c": 3,
+      "sev": "HIGH"
+    },
+    {
+      "name": "Outbound insecure protocol traffic from non guest network detected",
+      "c": 2,
+      "sev": "MEDIUM"
+    },
+    {
+      "name": "OT Modbus Write Command Initiated outside of Purdue Level 2",
+      "c": 1,
+      "sev": "MEDIUM"
+    }
+  ],
+  "risky_devices": [
+    {
+      "entity": "FortiGate-700G-Backup",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.4.20",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.4.21",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "192.168.10.28",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.2.15",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.3.22",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.3.88",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.6.33",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.5.19",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "10.50.4.7",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    }
+  ],
+  "risky_users": [
+    {
+      "entity": "dyu",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "alee",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "admin",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "kpatel",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "svc_cpm",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "nlopez",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "mwong",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "Administrator",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "jsmith",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    },
+    {
+      "entity": "rchen",
+      "score": "90.00",
+      "n_incidents": 0,
+      "rules": [],
+      "severities": []
+    }
+  ],
+  "entity_incidents": {
+    "172.16.0.1": [
+      {
+        "incidentId": 591982,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-1034 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      },
+      {
+        "incidentId": 556368,
+        "incidentTitle": "OT Modbus Write Command Initiated From 172.16.0.3",
+        "severity": null
+      },
+      {
+        "incidentId": 591981,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-5014 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      },
+      {
+        "incidentId": 556370,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-1646 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      },
+      {
+        "incidentId": 556371,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-5978 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      },
+      {
+        "incidentId": 556372,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-2341 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      },
+      {
+        "incidentId": 591975,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-3678 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      },
+      {
+        "incidentId": 591974,
+        "incidentTitle": "High Severity IPS Exploit FortiGate-ips-signature-6758 from 172.16.0.3 to 172.16.0.1",
+        "severity": null
+      }
+    ],
+    "172.16.0.254": [
+      {
+        "incidentId": 595023,
+        "incidentTitle": "High log receiving delay from monitored device 172.16.0.254",
+        "severity": null
+      }
+    ],
+    "192.168.27.3": [
+      {
+        "incidentId": 596002,
+        "incidentTitle": "High log receiving delay from monitored device 192.168.27.3",
+        "severity": null
+      },
+      {
+        "incidentId": 74046,
+        "incidentTitle": "Excessive End User DNS Queries from 192.168.27.3 to Unauthorized DNS Servers",
+        "severity": null
+      }
+    ],
+    "172.16.0.114": [
+      {
+        "incidentId": 595018,
+        "incidentTitle": "High log receiving delay from monitored device 172.16.0.114",
+        "severity": null
+      }
+    ],
+    "FortiGateRugged-70G-5G-Dual": [],
+    "FDCVM": []
+  },
+  "fdc_modbus": 275,
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Siemens/PLC 活動高峰：2026-10-30 錄得 45298 筆 OT/IoT 事件",
+      "severity": "high",
+      "detail": "過去 5 日 OT/IoT 事件中，Siemens PLC Start/Stop 與 S7 相關訊號佔主導；請核對生產時段內是否屬預期維護。"
+    },
+    {
+      "id": "F2",
+      "title": "Purdue / Modbus Write / PLC Logic 規則命中",
+      "severity": "high",
+      "detail": "偵測到 Unusual OT Transactions、Purdue level 越界、Modbus write 非 L2，或生產時段 PLC logic 修改 — 屬高優先調查項。"
+    },
+    {
+      "id": "F3",
+      "title": "FortiDeceptor Modbus-device 與 FTNT-IOT 無線 rogue 訊號",
+      "severity": "medium",
+      "detail": "FDCVM 持續回報 Modbus-device 資產輪廓；無線 rogue 事件涉及 SSID FTNT-IOT — 確認是否為實驗室/展示環境預期行為。"
+    }
+  ],
+  "mcp_failures": [],
+  "fp_notes": {
+    "bare_multiSearch_IoT": "Would match Cryptojacking via substring; excluded by word-boundary.",
+    "PH_AUDIT": "Excluded all PH_AUDIT% (self-query / dashboard noise mentioning Modbus/OT)."
+  },
+  "extras": {
+    "peak_day": "2026-10-30",
+    "peak_count": 45298,
+    "needle_active": [
+      [
+        "Siemens_S7",
+        86593
+      ],
+      [
+        "PLC",
+        66255
+      ],
+      [
+        "SCADA",
+        38265
+      ],
+      [
+        "Modbus",
+        13236
+      ],
+      [
+        "Purdue",
+        6971
+      ],
+      [
+        "IoT",
+        1200
+      ],
+      [
+        "FTNT_IOT",
+        793
+      ],
+      [
+        "S7comm",
+        165
+      ],
+      [
+        "ICS",
+        44
+      ],
+      [
+        "OPCUA",
+        7
+      ]
+    ],
+    "rule_count": 62719,
+    "inc_ot_n": 50,
+    "cmdb_ot_n": 4
+  },
+  "hkci": {
+    "disclaimer": "本頁將本週 FortiSIEM OT/IoT 觀測映射至公開的控制主題，僅供內部改善參考，並非法律意見，亦非斷言貴司屬《保護關鍵基礎設施電腦系統條例》下的指定營運者。實際法定責任僅適用於被正式指定的關鍵基礎設施營運者及其關鍵電腦系統。",
+    "framework": {
+      "name_zh": "《保護關鍵基礎設施電腦系統條例》(Cap. 653 / PCICSO)",
+      "effective": "2026-01-01",
+      "authority": "關鍵基礎設施專員（電腦系統安全）辦事處 OCCICS / Security Bureau",
+      "categories": [
+        {
+          "id": "C1",
+          "zh": "第1類 — 架構責任",
+          "en": "Organizational",
+          "points": [
+            "香港辦事處",
+            "營運者變更通知",
+            "設立電腦系統安全管理單位及主管"
+          ]
+        },
+        {
+          "id": "C2",
+          "zh": "第2類 — 預防責任",
+          "en": "Preventive",
+          "points": [
+            "關鍵電腦系統重大變更通知",
+            "提交／實施安全管理計劃",
+            "定期風險評估（每年）",
+            "獨立安全審核（每兩年）"
+          ]
+        },
+        {
+          "id": "C3",
+          "zh": "第3類 — 事故通報及應對",
+          "en": "Incident reporting & response",
+          "points": [
+            "應急計劃",
+            "參與演習",
+            "嚴重事故 12 小時／其他 48 小時通報",
+            "14 日內書面報告"
+          ]
+        }
+      ],
+      "cop_themes": [
+        {
+          "theme": "資產管理 Asset Management",
+          "cop": "CoP §6.2.9",
+          "ot": "OT 分區 §6.5.1"
+        },
+        {
+          "theme": "網絡保安／網域隔離 Network Security",
+          "cop": "CoP §6.2.21",
+          "ot": "OT 替代控制 §6.5.7"
+        },
+        {
+          "theme": "變更／修補管理 Change & Patch",
+          "cop": "CoP §6.2.16–17",
+          "ot": "OT 替代 §6.5.6"
+        },
+        {
+          "theme": "無線接達 Wireless Access",
+          "cop": "CoP §6.2.21(e)",
+          "ot": "需認證／加密／記錄補償"
+        },
+        {
+          "theme": "監察偵測 Monitoring & Detection",
+          "cop": "CoP §6.2.21(b) IDS/IPS",
+          "ot": "關鍵節點偵測"
+        },
+        {
+          "theme": "事故應急 Incident Response",
+          "cop": "第3類義務 + 應急計劃",
+          "ot": "含 OT 還原考量"
+        }
+      ],
+      "sources": [
+        {
+          "label": "OCCICS — 三類法定責任",
+          "url": "https://www.occics.gov.hk/tc/ordinance/obligations/index.html"
+        },
+        {
+          "label": "OCCICS — Obligations (EN)",
+          "url": "https://www.occics.gov.hk/en/ordinance/obligations/index.html"
+        },
+        {
+          "label": "Code of Practice (EN) v1.0",
+          "url": "https://www.occics.gov.hk/filemanager/en/content_19/CoP_en_v1.0.pdf"
+        },
+        {
+          "label": "實務守則 (中) v1.0",
+          "url": "https://www.occics.gov.hk/filemanager/tc/content_19/CoP_zh_v1.0.pdf"
+        },
+        {
+          "label": "CA — PCICSO 簡介",
+          "url": "https://www.coms-auth.hk/en/policies_regulations/other/pcicso/index.html"
+        }
+      ]
+    }
+  },
+  "attack_flows": [
+    {
+      "id": "protocol_abuse_modbus",
+      "name": "Modbus 協定濫用／非授權 Write",
+      "category": "Protocol abuse",
+      "zone": "L2–L3",
+      "severity": "HIGH",
+      "count": 985,
+      "eventType": "FortiDeceptor-Modbus_Connection",
+      "rept": "FDCVMSTM26000372",
+      "last_seen": "2026-10-30 17:04:18",
+      "grounding": "srcIpAddr / destIpAddr / eventType / reptDevName (dashed=unknown)",
+      "summary": "偵測到 Modbus／MOBUS 相關規則或 502 埠活動；可能為非 L2 來源對 PLC／誘捕裝置嘅 write／控制指令。",
+      "nodes": [
+        {
+          "label": "172.16.0.3",
+          "sub": "SRC / Actor",
+          "kind": "asset",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "OT FW / AppCtrl",
+          "sub": "Hop",
+          "kind": "lateral",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "Modbus Write/Ctrl",
+          "sub": "FortiDeceptor-Modbus_Connect",
+          "kind": "action",
+          "unknown": false,
+          "edge": "crit"
+        },
+        {
+          "label": "172.16.0.130",
+          "sub": "DST / Target",
+          "kind": "target",
+          "unknown": false
+        }
+      ],
+      "sample": {
+        "t": "2026-10-30 17:04:18",
+        "src": "172.16.0.3",
+        "dst": "172.16.0.130",
+        "eventType": "FortiDeceptor-Modbus_Connection",
+        "msg": "<25>Oct 30 17:04:01 172.16.0.117 2026-10-30T09:02:37Z FDCVMSTM26000372 device=FortiDeceptor version=1.2 devhost=FDCVMSTM26000372 devid=FDCVMSTM26000372 logver=25 tzone=0 tz= date=2026-10-30 time=09:02"
+      }
+    },
+    {
+      "id": "ot_port_scan",
+      "name": "OT 區可疑 Port Scan",
+      "category": "Recon / Scan",
+      "zone": "L3–L2",
+      "severity": "HIGH",
+      "count": 45,
+      "eventType": "OT_Suspicious_Port_Scanning_Activities",
+      "rept": "SIEM.fortinethk.com",
+      "last_seen": "2026-11-02 13:46:04",
+      "grounding": "srcIpAddr / destIpAddr / eventType / reptDevName (dashed=unknown)",
+      "summary": "OT_Suspicious_Port_Scanning 規則命中，顯示對工業網段嘅探測行為。",
+      "nodes": [
+        {
+          "label": "66.228.62.150",
+          "sub": "SRC / Actor",
+          "kind": "asset",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "Scanner 探測",
+          "sub": "Hop",
+          "kind": "action",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "Port Scan",
+          "sub": "OT_Suspicious_Port_Scanning_",
+          "kind": "action",
+          "unknown": false,
+          "edge": "crit"
+        },
+        {
+          "label": "OT 網段 (多埠)",
+          "sub": "DST / Target",
+          "kind": "target",
+          "unknown": true
+        }
+      ],
+      "sample": {
+        "t": "2026-11-02 13:46:04",
+        "src": "66.228.62.150",
+        "dst": "OT 網段 (多埠)",
+        "eventType": "OT_Suspicious_Port_Scanning_Activities",
+        "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793598360</lastSeenTime><firstSeenTime>1793598360</firstSeenTime><count>1</cou"
+      }
+    },
+    {
+      "id": "auth_or_wireless_iot",
+      "name": "FTNT-IOT 無線 Rogue／認證面",
+      "category": "Auth / Wireless IoT",
+      "zone": "DMZ–L3",
+      "severity": "MED",
+      "count": 1159,
+      "eventType": "FortiGate-event-wireless-rogue-offair",
+      "rept": "FortiGate-700G-Backup",
+      "last_seen": "2026-11-02 14:47:44",
+      "grounding": "srcIpAddr / destIpAddr / eventType / reptDevName (dashed=unknown)",
+      "summary": "無線 rogue 事件同 FTNT-IOT SSID 相關訊號；需確認係實驗／展示定未授權 AP。",
+      "nodes": [
+        {
+          "label": "Rogue SSID client",
+          "sub": "SRC / Actor",
+          "kind": "asset",
+          "unknown": true,
+          "edge": "active"
+        },
+        {
+          "label": "Wireless Ctrl",
+          "sub": "Hop",
+          "kind": "lateral",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "Rogue AP / Auth",
+          "sub": "FortiGate-event-wireless-rog",
+          "kind": "action",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "FortiGate-700G-Backup",
+          "sub": "DST / Target",
+          "kind": "target",
+          "unknown": false
+        }
+      ],
+      "sample": {
+        "t": "2026-11-02 14:47:44",
+        "src": "Rogue SSID client",
+        "dst": "FortiGate-700G-Backup",
+        "eventType": "FortiGate-event-wireless-rogue-offair",
+        "msg": "<189>date=2026-11-02 time=14:47:43 devname=\"FortiGate-700G-Backup\" devid=\"FG7H0GTB25000417\" eventtime=1793602063189028028 tz=\"+0800\" logid=\"0104043564\" type=\"event\" subtype=\"wireless\" level=\"notice\" v"
+      }
+    },
+    {
+      "id": "malware_ndr_ot",
+      "name": "FortiDeceptor／IPS 於 OT 相關流量",
+      "category": "Malware / NDR decoy",
+      "zone": "L2–Honey",
+      "severity": "CRIT",
+      "count": 1487,
+      "eventType": "FortiDeceptor-Modbus_Connection",
+      "rept": "FDCVMSTM26000372",
+      "last_seen": "2026-10-30 17:04:18",
+      "grounding": "srcIpAddr / destIpAddr / eventType / reptDevName (dashed=unknown)",
+      "summary": "FortiDeceptor Modbus-device 輪廓或 OT 相關 IPS 命中，提示有主機接觸誘捕／惡意特徵。",
+      "nodes": [
+        {
+          "label": "172.16.0.3",
+          "sub": "SRC / Actor",
+          "kind": "asset",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "FDCVM Decoy",
+          "sub": "Hop",
+          "kind": "action",
+          "unknown": false,
+          "edge": "crit"
+        },
+        {
+          "label": "Decoy / IPS Hit",
+          "sub": "FortiDeceptor-Modbus_Connect",
+          "kind": "action",
+          "unknown": false,
+          "edge": "crit"
+        },
+        {
+          "label": "172.16.0.130",
+          "sub": "DST / Target",
+          "kind": "target",
+          "unknown": false
+        }
+      ],
+      "sample": {
+        "t": "2026-10-30 17:04:18",
+        "src": "172.16.0.3",
+        "dst": "172.16.0.130",
+        "eventType": "FortiDeceptor-Modbus_Connection",
+        "msg": "<25>Oct 30 17:04:01 172.16.0.117 2026-10-30T09:02:37Z FDCVMSTM26000372 device=FortiDeceptor version=1.2 devhost=FDCVMSTM26000372 devid=FDCVMSTM26000372 logver=25 tzone=0 tz= date=2026-10-30 time=09:02"
+      }
+    },
+    {
+      "id": "config_change_plc",
+      "name": "PLC Start/Stop／Logic 組態變更",
+      "category": "Config change",
+      "zone": "L1–L2",
+      "severity": "HIGH",
+      "count": 54608,
+      "eventType": "Siemens_PLC_Start_Stop_Status_Change",
+      "rept": "HOST-172.16.0.1",
+      "last_seen": "2026-11-02 14:48:19",
+      "grounding": "srcIpAddr / destIpAddr / eventType / reptDevName (dashed=unknown)",
+      "summary": "Siemens PLC Start/Stop 狀態變更主導五日事件；需核對是否屬預期維護窗口。",
+      "nodes": [
+        {
+          "label": "維運／工程端",
+          "sub": "SRC / Actor",
+          "kind": "asset",
+          "unknown": true,
+          "edge": "active"
+        },
+        {
+          "label": "Engineering WS",
+          "sub": "Hop",
+          "kind": "action",
+          "unknown": false,
+          "edge": "active"
+        },
+        {
+          "label": "PLC State Change",
+          "sub": "Siemens_PLC_Start_Stop_Statu",
+          "kind": "action",
+          "unknown": false,
+          "edge": "crit"
+        },
+        {
+          "label": "HOST-172.16.0.1",
+          "sub": "DST / Target",
+          "kind": "target",
+          "unknown": false
+        }
+      ],
+      "sample": {
+        "t": "2026-11-02 14:48:19",
+        "src": "維運／工程端",
+        "dst": "HOST-172.16.0.1",
+        "eventType": "Siemens_PLC_Start_Stop_Status_Change",
+        "msg": "<!-- PHBOX RULE ENGINE --><event name=\"phRuleIncident\"><supervisorName>SIEM.fortinethk.com</supervisorName><lastSeenTime>1793602095</lastSeenTime><firstSeenTime>1793598570</firstSeenTime><count>114</c"
+      }
+    }
+  ]
+}

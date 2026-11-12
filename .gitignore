@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+*.secret
+*.zip
+.DS_Store
+*.log
+work/*.json
+work/**/*.json
+work/*.html
+work/**/*.html
+out/*.html
+out/*.json

@@ -1,0 +1,786 @@
+[
+ {
+  "zh": "本時段有 <b>${fmt(rept.length)}</b> 個報告名稱送日誌（Top：${rept.slice(0,3).map(r=>esc(r.reptDevName)+' '+sh(r.c)).join('、')||'—'}）。CMDB 登錄 <b>${fmt(cmdbN)}</b> 部（discover = LOG）；<b>${fmt(evS.Critical||0)}</b> 部收集狀態 Critical${crit.length?'（'+crit.map(esc).join('、')+'）':''}；<b>${fmt(notIn.length)}</b> 個報告名稱未入 CMDB${notIn[0]?'（例如 '+esc(notIn[0].reptDevName)+'）':''}。FortiOS 設備 <b>${fmt((D.cmdb_fortios||[]).length)}</b> 部。${health?'SIEM 節點 '+esc(health.host_name)+' 狀態 '+esc(health.summary)+'。':''}",
+  "en": "This window has <b>${fmt(rept.length)}</b> reporting names sending logs (top: ${rept.slice(0,3).map(r=>esc(r.reptDevName)+' '+sh(r.c)).join(', ')||'—'}). CMDB lists <b>${fmt(cmdbN)}</b> devices (discover = LOG); <b>${fmt(evS.Critical||0)}</b> with Critical collection status${crit.length?'('+crit.map(esc).join(', ')+')':''}；<b>${fmt(notIn.length)}</b> reporting names not in CMDB${notIn[0]?'(e.g. '+esc(notIn[0].reptDevName)+')':''}. FortiOS devices: <b>${fmt((D.cmdb_fortios||[]).length)}</b>。${health?'SIEM Node '+esc(health.host_name)+' status '+esc(health.summary)+'.':''}"
+ },
+ {
+  "zh": "<span class=\"mono\">${esc(rd[0]&&rd[0].entity)}</span> 以 <b>${rd[0]?rd[0].score:''}</b> 分遙遙領先，原因係「${esc(rd[0]&&rd[0].rules[0])}」（${rd[0]?rd[0].n:0} 宗）。其餘設備介乎 ${rd.length>1?rd[rd.length-1].score:''}–${rd.length>1?rd[1].score:''} 分。使用者方面工具只回傳 ${ru.length} 個實體，最高係 <span class=\"mono\">${esc(ru[0]&&ru[0].entity)}</span>（${ru[0]?ru[0].score:''} 分，境外 VPN 登入）。",
+  "en": "<span class=\"mono\">${esc(rd[0]&&rd[0].entity)}</span> at <b>${rd[0]?rd[0].score:''}</b>  points — well ahead — driven by \"${esc(rd[0]&&rd[0].rules[0])}\"(${rd[0]?rd[0].n:0} ). Other devices score between  ${rd.length>1?rd[rd.length-1].score:''}–${rd.length>1?rd[1].score:''}  points. The risky-users tool returned only  ${ru.length}  entities; the top is  <span class=\"mono\">${esc(ru[0]&&ru[0].entity)}</span>(${ru[0]?ru[0].score:''}  points, offshore VPN logons)."
+ },
+ {
+  "zh": "${SPAN}內 ${wan(permTot)} 筆流量獲放行、${wan(denyTot)} 筆被拒絕（${denyR.toFixed(1)}%）。拒絕比例最高嗰日係 <b>${esc(dl(dMax&&dMax.day))}</b>（${dMax?dMax.r.toFixed(1):'—'}%${dMax&&evDay.length&&dMax.day===evDay[evDay.length-1].day?'，當日為不完整日':''}）。被拒絕最多嘅來源係 <span class=\"mono\">${esc(((D.traffic_deny_top_src||[])[0]||{}).ip)}</span>，目的埠以 <b>53（DNS）</b>居首。",
+  "en": "Within ${SPAN}: ${wan(permTot)}  traffic events were permitted and ${wan(denyTot)}  were denied (${denyR.toFixed(1)}%)。The highest deny rate was on  <b>${esc(dl(dMax&&dMax.day))}</b>(${dMax?dMax.r.toFixed(1):'—'}%${dMax&&evDay.length&&dMax.day===evDay[evDay.length-1].day?', Partial day':''})。Top denied source is <span class=\"mono\">${esc(((D.traffic_deny_top_src||[])[0]||{}).ip)}</span> · top dest port  <b>53(DNS)</b>."
+ },
+ {
+  "zh": "事故量集中喺 <b>${esc(bS&&bS.hour)} 至 ${esc(bE&&bE.hour)}</b> HKT（每小時 ≥ 100 宗），最高峰係 <b>${esc(dl(incPeak&&incPeak.day))}</b>（${fmt(incPeak&&incPeak.c)} 宗）。${pct(ndrInc,incTotal)} 嚟自 ${esc(X.fam||\"—\")} 規則，${fmt(tp161)} 宗來源都係 <span class=\"mono\">${esc(X.fam_top_src||\"—\")}</span>。${pct(incOpen,incTotal)} 仍未處理。",
+  "en": "Incident volume clusters between  <b>${esc(bS&&bS.hour)} to ${esc(bE&&bE.hour)}</b> HKT(hourly ≥ 100 ); the peak day is  <b>${esc(dl(incPeak&&incPeak.day))}</b>(${fmt(incPeak&&incPeak.c)})。${pct(ndrInc,incTotal)} came from ${esc(X.fam||\"—\")} rules; ${fmt(tp161)} had source <span class=\"mono\">${esc(X.fam_top_src||\"—\")}</span>。${pct(incOpen,incTotal)} still open."
+ },
+ {
+  "zh": "最繁忙嘅一個鐘係 <b>${esc(busy&&busy.day)} ${busy?busy.hr:''}:00</b>（${fmt(busy&&busy.c)} 筆）。<b>${esc(r0.reptDevName)}</b> 一部機已經貢獻 ${pct(r0.c,T.events)} 事件；最多嘅事件類型係 <span class=\"mono\">${esc(topType.eventType)}</span>（${pct(topType.c,T.events)}）。EPS 最高約 ${epsMax?epsMax.eps.toFixed(1):'—'}，10-18 下午之後明顯回落。",
+  "en": "The busiest hour was  <b>${esc(busy&&busy.day)} ${busy?busy.hr:''}:00</b>(${fmt(busy&&busy.c)})。<b>${esc(r0.reptDevName)}</b>  alone contributed  ${pct(r0.c,T.events)} Events；The top event type is  <span class=\"mono\">${esc(topType.eventType)}</span>(${pct(topType.c,T.events)})。EPS peak ~ ${epsMax?epsMax.eps.toFixed(1):'—'}, 10-18  dropped clearly after afternoon."
+ },
+ {
+  "zh": "成功登入 ${fmt(authS)} 次，失敗只有 <b>${authF}</b> 次。成功登入入面 ${pct((at[0]||{}).success,authS)} 係 <span class=\"mono\">${esc((at[0]||{}).eventType)}</span>（SIEM 主機上嘅 su 切換）；FortiGate 管理員登入主要來自 <span class=\"mono\">${esc(((D.admin_logins||[])[0]||{}).src)}</span>。",
+  "en": "Successful logons:  ${fmt(authS)} ; failures only  <b>${authF}</b> . Of successful logons,  ${pct((at[0]||{}).success,authS)} is <span class=\"mono\">${esc((at[0]||{}).eventType)}</span>(SIEM host su switches)；FortiGate FortiGate admin logons mainly from  <span class=\"mono\">${esc(((D.admin_logins||[])[0]||{}).src)}</span>。"
+ },
+ {
+  "zh": "內部主機直接問公共 DNS 好普遍：<span class=\"mono\">${esc(dtop.ip)} → ${esc(dtop.dns_server)}</span> 一條路已經有 ${wan(dtop.c||0)} 筆。FortiSIEM 規則「End User DNS Queries to Unauthorized DNS Servers」觸發 ${fmt(unauth)} 次，53 埠被拒絕 ${wan(d53)} 筆。",
+  "en": "Internal hosts querying public DNS is common: <span class=\"mono\">${esc(dtop.ip)} → ${esc(dtop.dns_server)}</span>  alone accounts for  ${wan(dtop.c||0)}。FortiSIEM rule \"End User DNS Queries to Unauthorized DNS Servers\" fired  ${fmt(unauth)}  times; port-53 denials  ${wan(d53)}。"
+ },
+ {
+  "zh": "Event type groups <span class=\"mono\">PH_SYS_EVENT_PermitTraffic / DenyTraffic</span> · 每部機以 <span class=\"mono\">eventAction</span> 計 <span class=\"mono\">FortiGate-traffic*</span>",
+  "en": "Event type groups <span class=\"mono\">PH_SYS_EVENT_PermitTraffic / DenyTraffic</span> · per device via <span class=\"mono\">eventAction</span>  via <span class=\"mono\">FortiGate-traffic*</span>"
+ },
+ {
+  "zh": "${esc(dl(peak&&peak.day))} 係${WK}最忙嘅一日（${wan(peak?peak.c:0)} 筆）。期內共開出 ${fmt(incTotal)} 宗事故，${pct(incOpen,incTotal)} 仍然未處理；其中 ${pct(ndrInc,incTotal)} 由 ${esc(X.fam||\"—\")} 規則觸發。",
+  "en": "${esc(dl(peak&&peak.day))} was the busiest day of ${WK}(${wan(peak?peak.c:0)}  events). In the period there were  ${fmt(incTotal)}  incidents, ${pct(incOpen,incTotal)} still open； of which  ${pct(ndrInc,incTotal)} triggered by ${esc(X.fam||\"—\")} rules。"
+ },
+ {
+  "zh": "FortiSIEM DNS groups 計數為 ${fmt((dg.common_dns||0)+(dg.uncommon_dns||0)+(dg.denied_dns||0))}，所以改用 <span class=\"mono\">destIpPort = 53</span> 及 DNS 規則事件",
+  "en": "FortiSIEM DNS groups counted  ${fmt((dg.common_dns||0)+(dg.uncommon_dns||0)+(dg.denied_dns||0))},  so this report uses  <span class=\"mono\">destIpPort = 53</span>  and DNS rule events"
+ },
+ {
+  "zh": "eventType 含 chg / config / change，包括 <span class=\"mono\">FortiGate-event-chg-config</span>、<span class=\"mono\">PH_RULE_FGT_Config_Change</span>",
+  "en": "eventType contains chg / config / change, including <span class=\"mono\">FortiGate-event-chg-config</span> · <span class=\"mono\">PH_RULE_FGT_Config_Change</span>"
+ },
+ {
+  "zh": "${SPAN} <span class=\"hl\">${wan(T.events||0)}</span> 筆事件，<br>${esc(X.fam||\"—\")} 告警佔咗<span class=\"hl\">${esc(X.fam_pct_zh||\"—\")}</span>事故",
+  "en": "${SPAN} <span class=\"hl\">${wan(T.events||0)}</span>  events,<br>${esc(X.fam||\"—\")} alerts account for <span class=\"hl\">${esc(X.fam_pct_zh||\"—\")}</span> of incidents"
+ },
+ {
+  "zh": "MCP 工具 <span class=\"mono\">get_top_10_risky_devices_incidents</span> · <span class=\"mono\">get_top_10_risky_users_incidents</span>",
+  "en": "MCP tools <span class=\"mono\">get_top_10_risky_devices_incidents</span> · <span class=\"mono\">get_top_10_risky_users_incidents</span>"
+ },
+ {
+  "zh": "資料時段 ${esc(firstT)} → ${esc(lastT)} HKT · 擷取於 ${esc(M.generated_hkt)} · ${esc(M.supervisor)} · 經 FortiSIEM MCP 唯讀查詢",
+  "en": "Window ${esc(firstT)} → ${esc(lastT)} HKT · Collected ${esc(M.generated_hkt)} · ${esc(M.supervisor)} · via FortiSIEM MCP (read-only)"
+ },
+ {
+  "zh": "Postgres <span class=\"mono\">ph_incident JOIN ph_drq_rule</span> · last_seen_time 在${SPAN}內 · 共 ${fmt(incTotal)} 宗",
+  "en": "Postgres <span class=\"mono\">ph_incident JOIN ph_drq_rule</span> · last_seen_time within ${SPAN}: · ${fmt(incTotal)} total"
+ },
+ {
+  "zh": "${SPAN}共有 ${fmt(cfgTot)} 筆設定相關事件。最多變更來自 <span class=\"mono\">${esc(cfgTop[0]&&cfgTop[0][0])}</span>${cfgTop[1]?",
+  "en": "${SPAN} total  ${fmt(cfgTot)}  config-related events. Most changes came from  <span class=\"mono\">${esc(cfgTop[0]&&cfgTop[0][0])}</span>${cfgTop[1]?"
+ },
+ {
+  "zh": "<span class=\"mono\">PH_SYS_EVENT_Logon</span>（成功）· <span class=\"mono\">PH_SYS_EVENT_LogonFailure</span>（失敗）",
+  "en": "<span class=\"mono\">PH_SYS_EVENT_Logon</span>(success) · <span class=\"mono\">PH_SYS_EVENT_LogonFailure</span>(failure)"
+ },
+ {
+  "zh": "以下建議對應 ISO/IEC 27001:2022 Annex A 常見控制（日誌、監控、網絡、存取、變更）。每一條都綁定本報告實際觀察到嘅狀況。",
+  "en": "Recommendations map to common ISO/IEC 27001:2022 Annex A controls (logging, monitoring, network, access, change). Each item is tied to observations in this report."
+ },
+ {
+  "zh": "<div style=\"color:var(--mut);font-size:13px\">內部 IP，未作外部信譽查詢</div>",
+  "en": "<div style=\"color:var(--mut);font-size:13px\">Internal IP — external reputation not queried</div>"
+ },
+ {
+  "zh": "FortiSIEM ${SPAN}安全回顧 · Super 組織 · 香港時間 HKT",
+  "en": "FortiSIEM ${SPAN}Security Review · Super org · Hong KongTime (HKT)"
+ },
+ {
+  "zh": "incident_detail_json → virusName（顏色 = 嚴重度）",
+  "en": "incident_detail_json → virusName(colour = severity)"
+ },
+ {
+  "zh": "左：srcGeoCountry · 右：destGeoCountry（各自刻度）",
+  "en": "Left: srcGeoCountry · Right: destGeoCountry (own scale)"
+ },
+ {
+  "zh": "內圈為 eventTypeGrp，外圈為 eventType（Top 25）",
+  "en": "Inner = eventTypeGrp, Outer = eventType(Top 25)"
+ },
+ {
+  "zh": "Reporting devices vs CMDB（詳見下方資產章節）",
+  "en": "Reporting devices vs CMDB (see Assets section)"
+ },
+ {
+  "zh": "Sankey · destIpPort = 53 Top 10 配對",
+  "en": "Sankey · destIpPort = 53 top 10 pairs"
+ },
+ {
+  "zh": "只根據本報告收集嘅數據，對應 Annex A 控制目標；冇推測數字",
+  "en": "Based only on collected data, mapped to Annex A — no invented figures"
+ },
+ {
+  "zh": "ph_user（prime_profile_id 不為空）",
+  "en": "ph_user(prime_profile_id not empty)"
+ },
+ {
+  "zh": "FortiNDR 事故 Sankey（Top 10 配對）",
+  "en": "FortiNDR Incident Sankey (top 10 pairs)"
+ },
+ {
+  "zh": "外圈：紅 = Critical　綠 = Normal",
+  "en": "Outer: red = Critical · green = Normal"
+ },
+ {
+  "zh": "各階段為獨立計數（並非嚴格子集），闊度按對數比例",
+  "en": "Stages are independent counts (not strict subsets); widths use a log scale"
+ },
+ {
+  "zh": "user 欄位 Top 12（已排除 N/A）",
+  "en": "user field Top 12 (N/A filtered out)"
+ },
+ {
+  "zh": "Deny group Top 10（對數刻度）",
+  "en": "Deny group Top 10(log scale)"
+ },
+ {
+  "zh": "eventSeverityCat 堆疊面積",
+  "en": "eventSeverityCat Stacked area"
+ },
+ {
+  "zh": "各 FortiGate 放行 / 阻擋流向",
+  "en": "Per-FortiGate permit / deny"
+ },
+ {
+  "zh": "圓點大小與顏色代表該小時事件數（HKT）",
+  "en": "Dot size/colour = events in that hour (HKT)"
+ },
+ {
+  "zh": "FortiGate 管理員登入 / 登出",
+  "en": "FortiGate Admin login / logout"
+ },
+ {
+  "zh": "陰影為高峰時段（每小時 ≥ 100 宗）",
+  "en": "Shaded = peak hours (≥ ≥ 100)"
+ },
+ {
+  "zh": "所有數字均來自本報告收集嘅數據，並冇推測",
+  "en": "All figures come from data collected for this report — nothing invented"
+ },
+ {
+  "zh": "每個數據集所用嘅 MCP 工具及 SQL",
+  "en": "MCP tool and SQL used per dataset"
+ },
+ {
+  "zh": "虛線為完整日平均；首尾兩日只有部分時段",
+  "en": "Dashed line = full-day average；First/last days are partial"
+ },
+ {
+  "zh": "event_status，每格一部設備",
+  "en": "event_status, One cell per device"
+ },
+ {
+  "zh": "SIEM 輸入 EPS（每小時平均）",
+  "en": "SIEM Ingest EPS (hourly avg)"
+ },
+ {
+  "zh": "reptDevName（對數刻度）",
+  "en": "reptDevName(log scale)"
+ },
+ {
+  "zh": "DNS 客戶端 → DNS 伺服器",
+  "en": "DNS client → DNS server"
+ },
+ {
+  "zh": "最近 FortiGate 設定事件",
+  "en": "Recent FortiGate config events"
+ },
+ {
+  "zh": "FortiSIEM 使用者及角色",
+  "en": "FortiSIEM Users and roles"
+ },
+ {
+  "zh": "成功（柱）· 失敗（紅點，右軸）",
+  "en": "Success (bars) · Failure (red dots, right axis)"
+ },
+ {
+  "zh": "port 53 或名稱含 dns",
+  "en": "port 53 or name contains dns"
+ },
+ {
+  "zh": "Top 10 規則 Sankey",
+  "en": "Top 10 Rule Sankey"
+ },
+ {
+  "zh": "每條軸代表一部設備，滿分 100",
+  "en": "Each axis = one device, max 100"
+ },
+ {
+  "zh": "FortiNDR 偵測惡意程式",
+  "en": "FortiNDR Malware detections"
+ },
+ {
+  "zh": "出現次數最多的 HIGH 事故",
+  "en": "Top HIGH by incident_count"
+ },
+ {
+  "zh": "FortiSIEM 節點資源",
+  "en": "FortiSIEM Node resources"
+ },
+ {
+  "zh": "柱：事件數 · 線：拒絕比例",
+  "en": "Bars = events · Line = deny %"
+ },
+ {
+  "zh": "user · 來源 · 設備",
+  "en": "user · Source · Device"
+ },
+ {
+  "zh": "IOC 外部 IP 信譽一覽",
+  "en": "IOC External IP reputation"
+ },
+ {
+  "zh": "合規建議 ISO 27001",
+  "en": "ISO 27001 compliance"
+ },
+ {
+  "zh": "D|放行 permitted",
+  "en": "D|permitted"
+ },
+ {
+  "zh": "每格一日，顏色越深事件越多",
+  "en": "One cell per day; darker = more events"
+ },
+ {
+  "zh": "與 DNS 有關的事件類型",
+  "en": "DNS-related event types"
+ },
+ {
+  "zh": "收集狀態 Critical",
+  "en": "Collection status Critical"
+ },
+ {
+  "zh": "廠商 → 型號 → 設備",
+  "en": "Vendor → Model → Device"
+ },
+ {
+  "zh": "來源國家 vs 目的國家",
+  "en": "Source country vs destination country"
+ },
+ {
+  "zh": "來源 IP Top 15",
+  "en": "Source IP Top 15"
+ },
+ {
+  "zh": "目的 IP Top 15",
+  "en": "Dest IP Top 15"
+ },
+ {
+  "zh": "內圈類別 · 外圈嚴重度",
+  "en": "Inner = category · Outer = severity"
+ },
+ {
+  "zh": "最近 40 宗 HIGH",
+  "en": "Latest 40 HIGH"
+ },
+ {
+  "zh": "D|阻擋 blocked",
+  "en": "D|blocked"
+ },
+ {
+  "zh": "last_seen 在",
+  "en": "last_seen within "
+ },
+ {
+  "zh": "被拒絕最多的來源 IP",
+  "en": "Top denied sources IP"
+ },
+ {
+  "zh": "報告中但不在 CMDB",
+  "en": "In report but not in CMDB"
+ },
+ {
+  "zh": "FortiOS 設備",
+  "en": "FortiOS devices"
+ },
+ {
+  "zh": "每日允許 vs 拒絕",
+  "en": "Permit vs Deny / Day"
+ },
+ {
+  "zh": "每日事故（按嚴重度）",
+  "en": "Incidents / Day (by severity)"
+ },
+ {
+  "zh": "新開事故（按嚴重度）",
+  "en": "New incidents (by severity)"
+ },
+ {
+  "zh": "規則 → 嚴重度流向",
+  "en": "Rule → Severity flow"
+ },
+ {
+  "zh": "失敗 / 被拒嘅呼叫",
+  "en": "Failed / blocked calls"
+ },
+ {
+  "zh": "未授權 DNS 查詢",
+  "en": "Unauthorized DNS queries"
+ },
+ {
+  "zh": "CMDB 設備清單",
+  "en": "CMDB device inventory"
+ },
+ {
+  "zh": "可按欄位排序或篩選",
+  "en": "Sortable / filterable columns"
+ },
+ {
+  "zh": "事故來源 → 目的",
+  "en": "Incident source → dest"
+ },
+ {
+  "zh": "日均事件（完整日）",
+  "en": "Daily events (full days)"
+ },
+ {
+  "zh": "允許 Permit",
+  "en": "Permit"
+ },
+ {
+  "zh": "過量 DNS 查詢",
+  "en": "Excessive DNS queries"
+ },
+ {
+  "zh": "逐小時事件打卡圖",
+  "en": "Hourly event punch card"
+ },
+ {
+  "zh": "成功登入 Top",
+  "en": "Top successful logons"
+ },
+ {
+  "zh": "VPN 相關事件",
+  "en": "VPN Related events"
+ },
+ {
+  "zh": "原始日誌（截短）",
+  "en": "Raw log (truncated)"
+ },
+ {
+  "zh": "類別 × 嚴重度",
+  "en": "Category × severity"
+ },
+ {
+  "zh": "最新高嚴重度事故",
+  "en": "Latest HIGH incidents"
+ },
+ {
+  "zh": "發現時間 HKT",
+  "en": "Seen (HKT)"
+ },
+ {
+  "zh": "威脅情報來源狀態",
+  "en": "Threat-intel provider status"
+ },
+ {
+  "zh": "SQL / 參數",
+  "en": "SQL / args"
+ },
+ {
+  "zh": "輸入關鍵字篩選…",
+  "en": "Filter by keyword…"
+ },
+ {
+  "zh": "每日事件嚴重度",
+  "en": "Daily events by severity"
+ },
+ {
+  "zh": "被拒絕的目的埠",
+  "en": "Denied destination ports"
+ },
+ {
+  "zh": "成功 + 失敗",
+  "en": "Success + Failure"
+ },
+ {
+  "zh": "邊個改咗邊部機",
+  "en": "Who changed which device"
+ },
+ {
+  "zh": "極座標（對數）",
+  "en": "Polar (log scale)"
+ },
+ {
+  "zh": "包含嚴重度分佈",
+  "en": "with severity split"
+ },
+ {
+  "zh": "最常見事故標題",
+  "en": "Most common incident titles"
+ },
+ {
+  "zh": "事故相關使用者",
+  "en": "Incident users"
+ },
+ {
+  "zh": "風險使用者明細",
+  "en": "Risky users"
+ },
+ {
+  "zh": "嚴重度（工具）",
+  "en": "Severity (tool)"
+ },
+ {
+  "zh": "資產與日誌來源",
+  "en": "Assets & log sources"
+ },
+ {
+  "zh": "CMDB 設備",
+  "en": "CMDB devices"
+ },
+ {
+  "zh": "拒絕 Deny",
+  "en": "Deny"
+ },
+ {
+  "zh": "無埠/ICMP",
+  "en": "No port / ICMP"
+ },
+ {
+  "zh": "仍然 Open",
+  "en": "still Open"
+ },
+ {
+  "zh": "日誌來源速覽",
+  "en": "Log-source snapshot"
+ },
+ {
+  "zh": "流量拒絕比例",
+  "en": "Traffic deny ratio"
+ },
+ {
+  "zh": "由事件到處置",
+  "en": "From event to disposition"
+ },
+ {
+  "zh": "日誌收集狀態",
+  "en": "Log-collection status"
+ },
+ {
+  "zh": "平台健康細項",
+  "en": "Platform health details"
+ },
+ {
+  "zh": "十月事件日曆",
+  "en": "Event calendar"
+ },
+ {
+  "zh": "事件類型地圖",
+  "en": "Event-type map"
+ },
+ {
+  "zh": "報告設備排行",
+  "en": "Reporting-device ranking"
+ },
+ {
+  "zh": "目的埠玫瑰圖",
+  "en": "Destination-port rose"
+ },
+ {
+  "zh": "事件類型明細",
+  "en": "Event type detail"
+ },
+ {
+  "zh": "每日登入走勢",
+  "en": "Daily logon trend"
+ },
+ {
+  "zh": "認證事件類型",
+  "en": "Auth event types"
+ },
+ {
+  "zh": "登入失敗明細",
+  "en": "Logon failures"
+ },
+ {
+  "zh": "變更事件類型",
+  "en": "Change event types"
+ },
+ {
+  "zh": "每小時事故數",
+  "en": "Incidents / Hour"
+ },
+ {
+  "zh": "設備風險雷達",
+  "en": "Device risk radar"
+ },
+ {
+  "zh": "使用者風險分",
+  "en": "User risk scores"
+ },
+ {
+  "zh": "滿分 100",
+  "en": "max 100"
+ },
+ {
+  "zh": "風險設備明細",
+  "en": "Risky devices"
+ },
+ {
+  "zh": "所有數據來源",
+  "en": "All data sources"
+ },
+ {
+  "zh": "最後 HKT",
+  "en": "Last seen (HKT)"
+ },
+ {
+  "zh": "時間 HKT",
+  "en": "Time (HKT)"
+ },
+ {
+  "zh": "首次 HKT",
+  "en": "First seen (HKT)"
+ },
+ {
+  "zh": "DNS 活動",
+  "en": "DNS activity"
+ },
+ {
+  "zh": "完整日平均 ",
+  "en": "full-day average "
+ },
+ {
+  "zh": "來源 src",
+  "en": "Source"
+ },
+ {
+  "zh": "目的 dst",
+  "en": "Destination"
+ },
+ {
+  "zh": "53 埠事件",
+  "en": "Port 53Events"
+ },
+ {
+  "zh": "每日事件量",
+  "en": "Daily event volume"
+ },
+ {
+  "zh": "事故嚴重度",
+  "en": "Incident severity"
+ },
+ {
+  "zh": "活躍使用者",
+  "en": "Active users"
+ },
+ {
+  "zh": "事故 ID",
+  "en": "Incident ID"
+ },
+ {
+  "zh": "防火牆流量",
+  "en": "Firewall traffic"
+ },
+ {
+  "zh": "登入與認證",
+  "en": "Logon & authentication"
+ },
+ {
+  "zh": "發現與建議",
+  "en": "Findings"
+ },
+ {
+  "zh": "告警高峰期",
+  "en": "Alert peak hours"
+ },
+ {
+  "zh": "Risk分",
+  "en": "Risk score"
+ },
+ {
+  "zh": "資產組成",
+  "en": "Asset composition"
+ },
+ {
+  "zh": "事件類別",
+  "en": "Event category"
+ },
+ {
+  "zh": "事故狀態",
+  "en": "Incident status"
+ },
+ {
+  "zh": "規則排行",
+  "en": "Top rules"
+ },
+ {
+  "zh": "收集資料",
+  "en": "Collection"
+ },
+ {
+  "zh": "收集狀態",
+  "en": "Collection status"
+ },
+ {
+  "zh": "佔比 %",
+  "en": "Share %"
+ },
+ {
+  "zh": "事件流量",
+  "en": "Event volume"
+ },
+ {
+  "zh": "設定變更",
+  "en": "Config"
+ },
+ {
+  "zh": "風險實體",
+  "en": "Risk entities"
+ },
+ {
+  "zh": "個案追蹤",
+  "en": "Cases"
+ },
+ {
+  "zh": "拒絕比例",
+  "en": "Deny rate"
+ },
+ {
+  "zh": " 次失敗",
+  "en": " fails"
+ },
+ {
+  "zh": "認證事件",
+  "en": "Auth events"
+ },
+ {
+  "zh": "嚴重度",
+  "en": "Severity"
+ },
+ {
+  "zh": "風險分",
+  "en": "Risk score"
+ },
+ {
+  "zh": "事故數",
+  "en": "# Incidents"
+ },
+ {
+  "zh": "高峰 ",
+  "en": "Peak "
+ },
+ {
+  "zh": "宗事故",
+  "en": " incidentsIncidents"
+ },
+ {
+  "zh": "平均 ",
+  "en": "Avg "
+ },
+ {
+  "zh": "最高 ",
+  "en": "Max "
+ },
+ {
+  "zh": "限制",
+  "en": "Limitations"
+ },
+ {
+  "zh": "名稱",
+  "en": "Name"
+ },
+ {
+  "zh": "序號",
+  "en": "Serial "
+ },
+ {
+  "zh": "版本",
+  "en": "Version"
+ },
+ {
+  "zh": "項目",
+  "en": "Attribute"
+ },
+ {
+  "zh": "狀態",
+  "en": "Status"
+ },
+ {
+  "zh": "說明",
+  "en": "Reason"
+ },
+ {
+  "zh": "廠商",
+  "en": "Vendor"
+ },
+ {
+  "zh": "型號",
+  "en": "Model"
+ },
+ {
+  "zh": "權重",
+  "en": "Weight"
+ },
+ {
+  "zh": "事件",
+  "en": "Events"
+ },
+ {
+  "zh": "來源",
+  "en": "Source"
+ },
+ {
+  "zh": "設備",
+  "en": "reptDevName"
+ },
+ {
+  "zh": "次數",
+  "en": "Count"
+ },
+ {
+  "zh": "國家",
+  "en": "Country"
+ },
+ {
+  "zh": "規則",
+  "en": "Rule"
+ },
+ {
+  "zh": "類別",
+  "en": "Category"
+ },
+ {
+  "zh": "合共",
+  "en": "Events"
+ },
+ {
+  "zh": "標題",
+  "en": "Title"
+ },
+ {
+  "zh": "目的",
+  "en": "Dest"
+ },
+ {
+  "zh": "實體",
+  "en": "Entity"
+ },
+ {
+  "zh": "地點",
+  "en": "Location"
+ },
+ {
+  "zh": "事故",
+  "en": "Incidents"
+ },
+ {
+  "zh": "附錄",
+  "en": "Appendix"
+ },
+ {
+  "zh": "屬 ",
+  "en": "in "
+ },
+ {
+  "zh": "成功",
+  "en": "Success"
+ },
+ {
+  "zh": "失敗",
+  "en": "Failure"
+ },
+ {
+  "zh": " 宗",
+  "en": ""
+ },
+ {
+  "zh": "秒",
+  "en": "secs"
+ }
+]

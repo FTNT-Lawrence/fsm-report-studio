@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FortiSIEM Report Studio · 本機產生器</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <div class="mark">
+        <div class="badge">FSM</div>
+        <div>
+          <h1>FortiSIEM <span>Report Studio</span></h1>
+          <p class="sub">LOCAL CONSOLE · MCP READ-ONLY · HKT UTC+8</p>
+        </div>
+      </div>
+      <div class="meta-chips">
+        <span class="chip">Bind 127.0.0.1</span>
+        <span class="chip">Access Key 不寫入磁碟</span>
+        <span class="chip">單檔離線 HTML</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <header><b>01 連線同內容</b><span>設定</span></header>
+        <div class="body">
+          <p class="help">喺下面填 Supervisor 位址同 MCP OAuth 憑證，揀報告種類、版本同顏色，然後撳「產生報告」。Python 會喺呢部機即場砌一份單檔 HTML，放喺 <code>out/</code> 資料夾。即時查詢只會呼叫唯讀 MCP 工具，唔會改 FortiSIEM 事故或加 comment。</p>
+          <form id="form" autocomplete="off">
+            <div class="fields">
+              <label class="f">
+                <span class="k">Supervisor IP／主機 <em>必填</em></span>
+                <input type="text" id="host" name="host" placeholder="例如 10.1.2.3 或 https://&lt;supervisor-ip&gt;" spellcheck="false" value="">
+                <p class="hint">FortiSIEM Supervisor 位址。唔好填呢個套件入面冇預設值，請自行填寫。</p>
+              </label>
+              <label class="f">
+                <span class="k">OAuth Client ID <em>必填</em></span>
+                <input type="text" id="client_id" name="client_id" placeholder="FortiSIEM MCP OAuth client id（UUID）" spellcheck="false" value="">
+                <p class="hint">呢個係 FortiSIEM MCP 嘅 OAuth client id，唔係登入帳號。</p>
+              </label>
+              <label class="f">
+                <span class="k">API Access Key／Client Secret <em>即時收集必填</em></span>
+                <input type="password" id="secret" name="secret" placeholder="只會喺記憶體用一次，唔會記住" value="">
+                <p class="hint">用 OAuth client_credentials 換 token。本頁同報告都唔會儲存呢個值。若勾選「用上次 JSON 重建」，可以留空。</p>
+              </label>
+
+              <div class="checks">
+                <label><input type="checkbox" id="remember"> 記住 IP 同 Client ID（不會記住 Access Key）</label>
+                <label><input type="checkbox" id="verify_tls"> 驗證 TLS 憑證（預設唔驗證，方便自簽證書）</label>
+                <label><input type="checkbox" id="from_data"> 用上次收集嘅 JSON 重建（唔再連線 FortiSIEM）</label>
+              </div>
+
+              <div class="row">
+                <label class="f">
+                  <span class="k">報告種類</span>
+                  <select id="kind">
+                    <option value="siem" selected>SIEM 安全報告</option>
+                    <option value="ot">OT／IoT 安全報告</option>
+                  </select>
+                </label>
+                <label class="f">
+                  <span class="k">格式版本</span>
+                  <select id="version">
+                    <option value="1.5" selected>v1.5（ECharts 現行版）</option>
+                    <option value="1.3">經典 v1.3（cyber HUD，僅 SIEM／深色）</option>
+                  </select>
+                </label>
+              </div>
+              <div class="row">
+                <label class="f">
+                  <span class="k">顏色主題</span>
+                  <select id="theme">
+                    <option value="light" selected>淺色 Light</option>
+                    <option value="dark">深色 Dark</option>
+                  </select>
+                  <p class="hint" id="themeHint"></p>
+                </label>
+                <label class="f">
+                  <span class="k">報告語言</span>
+                  <select id="lang">
+                    <option value="zh" selected>繁體中文（香港）</option>
+                    <option value="en">English（對照表覆蓋，部分字句可能仍係中文）</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="row">
+                <label class="f">
+                  <span class="k">時間視窗</span>
+                  <select id="window_mode">
+                    <option value="days" selected>最近 N 日（截至現在）</option>
+                    <option value="absolute">指定開始／結束（香港時間）</option>
+                  </select>
+                </label>
+                <label class="f" id="daysWrap">
+                  <span class="k">日數</span>
+                  <input type="number" id="days" min="0.1" step="0.5" value="7">
+                  <p class="hint">SIEM 預設 7 日；OT／IoT 預設 3 日。標題會跟日數改「七日／三日」等字眼。</p>
+                </label>
+              </div>
+              <div class="row" id="absWrap" hidden>
+                <label class="f">
+                  <span class="k">開始（HKT）</span>
+                  <input type="text" id="start" placeholder="YYYY-MM-DD 或 YYYY-MM-DD HH:MM" value="">
+                </label>
+                <label class="f">
+                  <span class="k">結束（HKT，可留空＝現在）</span>
+                  <input type="text" id="end" placeholder="YYYY-MM-DD 或 YYYY-MM-DD HH:MM" value="">
+                </label>
+              </div>
+              <p class="hint" id="absHint" hidden>只填日期時代表當日 00:00；結束為不含上界。若要包含 11 月 11 日全日，結束請填 <code>2026-11-12</code> 或 <code>2026-11-11 23:59</code>。</p>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="primary" id="go">產生報告</button>
+              <span class="note" id="comboNote"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <header><b>02 進度</b><span id="runState">待機</span></header>
+        <div class="body">
+          <div class="log" id="log"><span class="dim">尚未開始。產生期間會喺呢度顯示即時日誌。</span></div>
+          <div class="status" id="status">報告會寫入呢個資料夾嘅 <code>out/</code>。完成後可喺呢度下載。</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="foot">
+      <div>READ-ONLY QUERY / GET · 拒絕 update / clear / append comment</div>
+      <div>PYTHON 3.9+ · 本機啟動：python3 start.py</div>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
